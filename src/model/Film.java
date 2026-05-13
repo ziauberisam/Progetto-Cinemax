@@ -38,6 +38,8 @@ public class Film {
 		this.etaMinima = etaMinima;
 	
 	}
+	
+	//METODI
 
 	public String getTitolo() {
 		return titolo;
@@ -86,8 +88,5 @@ public class Film {
 	public void setEtaMinima(int etaMinima) {
 		this.etaMinima = etaMinima;
 	}
-	
-	//METODI
-	
 	
 }

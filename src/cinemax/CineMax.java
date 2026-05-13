@@ -3,7 +3,7 @@
  * Punto di avvio del programma.
  * 
  * Autori:
- * Samuele Caputo, matricola , VA
+ * Samuele Caputo, matricola 765173, VA
  * @version 1.0
  */
 package cinemax;
