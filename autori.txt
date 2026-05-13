@@ -1,0 +1,9 @@
+Cognome: Caputo
+Nome: Samuele
+Matricola: 765173
+Sede: VA
+
+Cognome: Larghi
+Nome: Alessandra
+Matricola:
+Sede: VA
