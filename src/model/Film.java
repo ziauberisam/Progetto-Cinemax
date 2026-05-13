@@ -45,32 +45,16 @@ public class Film {
 		return titolo;
 	}
 
-	public void setTitolo(String titolo) {
-		this.titolo = titolo;
-	}
-
 	public String getGenere() {
 		return genere;
-	}
-
-	public void setGenere(String genere) {
-		this.genere = genere;
 	}
 
 	public String getRegista() {
 		return regista;
 	}
 
-	public void setRegista(String regista) {
-		this.regista = regista;
-	}
-
 	public int getAnno() {
 		return anno;
-	}
-
-	public void setAnno(int anno) {
-		this.anno = anno;
 	}
 
 	public int getDurata() {
