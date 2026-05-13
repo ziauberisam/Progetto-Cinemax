@@ -13,8 +13,8 @@ public class Film {
 	private String genere;
 	private String regista;
 	private int anno;
-	private int durata;
-	private int etaMinima;
+	private int durata;			//in minuti
+	private int etaMinima;		//età minima del pubblico
 	
 	//COSTRUTTORI
 	
