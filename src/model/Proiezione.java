@@ -28,7 +28,7 @@ public class Proiezione {
 	
 	/** Costruisce una nuova proiezione con tutti i suoi attributi:
 	 * @param Film		il film proiettato
-	 * @param data		la data della proiezione (YYYY-MM-DD)
+	 * @param data		la data della proiezione (yyyy-MM-dd)
 	 * @param ora 		l'ora della proiezione (HH:mm)
 	 * @param costoBiglietto	il costo del biglietto in euro
 	 */
