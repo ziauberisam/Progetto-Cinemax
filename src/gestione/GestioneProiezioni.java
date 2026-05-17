@@ -1,4 +1,4 @@
-/**	Gestisce la logica delle proiezioni nel sistema CineMax.
+/**	Gestisce la logica delle proiezioni nel sistema Cinemax.
  *
  * Autori:
  * Samuele Caputo, matricola 765173, VA
@@ -23,7 +23,9 @@ import java.util.LinkedList;
  */
 
 public class GestioneProiezioni {
-
+	
+	//CAMPI
+	
     /** Lista delle proiezioni caricate in memoria. */
     private LinkedList<Proiezione> proiezioni;
 
@@ -34,6 +36,8 @@ public class GestioneProiezioni {
     private static final DateTimeFormatter FORMATO_DATA =
         DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
+    //COSTRUTTORI
+    
     /**
      * Costruisce la GestioneProiezioni caricando
      * i dati dai file CSV.
@@ -43,10 +47,10 @@ public class GestioneProiezioni {
         this.prenotazioni = new LinkedList<>(FilePrenotazioni.caricaTutte(proiezioni));
     }
 
-    // RICERCA
+    // METODI: RICERCA
 
     /**
-     * Cerca proiezioni in base a uno o più criteri.
+     * Cerca proiezioni in base ai campi dati in argomento.
      * I campi vuoti o negativi vengono ignorati.
      *
      * @param titolo   titolo del film (anche parziale, può essere vuoto)
@@ -122,8 +126,6 @@ public class GestioneProiezioni {
         return Proiezione.POSTI_TOTALI - postiOccupati;
     }
 
-    // AGGIUNTA
-
     /**
      * Aggiunge una nuova proiezione al sistema.
      * Controlla che non si sovrapponga con una
@@ -146,8 +148,6 @@ public class GestioneProiezioni {
         proiezioni.add(proiezione);
         return FileProiezioni.aggiungi(proiezione);
     }
-
-    // MODIFICA
 
     /**
      * Modifica la data e l'ora di una proiezione esistente.
@@ -180,8 +180,6 @@ public class GestioneProiezioni {
         proiezione.setOra(nuovaOra);
         return FileProiezioni.salvaTutte(proiezioni);
     }
-
-    // ELIMINAZIONE
 
     /**
      * Elimina una proiezione dal sistema.
