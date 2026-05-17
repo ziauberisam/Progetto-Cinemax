@@ -9,10 +9,11 @@ package model;
 
 public class Prenotazione {
 	
+	//CAMPI
+
 	/** Ogni prenotazione è in relazione con un codice univoco generato automaticamente
 	 *	ed è collegata ad una proiezione e a uno username cliente.
 	 */
-	//CAMPI
 	
 	private static final String PREFISSO = "PRE-";
 	private static int contatore = 1;
@@ -59,6 +60,7 @@ public class Prenotazione {
      * @param proiezione      la proiezione prenotata
      * @param numeroBiglietti il numero di biglietti
      */
+	
     public Prenotazione(String codice, String usernameCliente, String nomeCliente, String cognomeCliente, Proiezione proiezione, int numeroBiglietti) {
         this.codice = codice;
         this.usernameCliente = usernameCliente;

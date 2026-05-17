@@ -40,8 +40,7 @@ public class GestioneProiezioni {
      */
     public GestioneProiezioni() {
         this.proiezioni = new LinkedList<>(FileProiezioni.caricaTutte());
-        this.prenotazioni = new LinkedList<>(
-            FilePrenotazioni.caricaTutte(proiezioni));
+        this.prenotazioni = new LinkedList<>(FilePrenotazioni.caricaTutte(proiezioni));
     }
 
     // RICERCA
@@ -58,45 +57,31 @@ public class GestioneProiezioni {
      * @param costoMax costo massimo del biglietto (-1 per ignorare)
      * @return lista delle proiezioni che rispettano i criteri
      */
-    public LinkedList<Proiezione> cercaProiezione(String titolo,
-                                                   String genere,
-                                                   String dataDa,
-                                                   String dataA,
-                                                   double costoMin,
-                                                   double costoMax) {
+    public LinkedList<Proiezione> cercaProiezione(String titolo, String genere,String dataDa,String dataA,double costoMin,double costoMax) {
         LinkedList<Proiezione> risultati = new LinkedList<>();
-
         for (Proiezione p : proiezioni) {
             Film film = p.getFilm();
-
             // Filtra per titolo (anche parziale, ignora maiuscole)
-            if (!titolo.isEmpty() &&
-                !film.getTitolo().toLowerCase()
-                     .contains(titolo.toLowerCase())) {
+            if (!titolo.isEmpty() && !film.getTitolo().toLowerCase().contains(titolo.toLowerCase())) {
                 continue;
             }
 
             // Filtra per genere
-            if (!genere.isEmpty() &&
-                !film.getGenere().equalsIgnoreCase(genere)) {
+            if (!genere.isEmpty() && !film.getGenere().equalsIgnoreCase(genere)) {
                 continue;
             }
 
             // Filtra per data di inizio
             if (!dataDa.isEmpty()) {
-                LocalDate dataProiezione = LocalDate.parse(
-                    p.getData(), FORMATO_DATA);
-                LocalDate dataInizio = LocalDate.parse(
-                    dataDa, FORMATO_DATA);
+                LocalDate dataProiezione = LocalDate.parse(p.getData(), FORMATO_DATA);
+                LocalDate dataInizio = LocalDate.parse(dataDa, FORMATO_DATA);
                 if (dataProiezione.isBefore(dataInizio)) continue;
             }
 
             // Filtra per data di fine
             if (!dataA.isEmpty()) {
-                LocalDate dataProiezione = LocalDate.parse(
-                    p.getData(), FORMATO_DATA);
-                LocalDate dataFine = LocalDate.parse(
-                    dataA, FORMATO_DATA);
+                LocalDate dataProiezione = LocalDate.parse(p.getData(), FORMATO_DATA);
+                LocalDate dataFine = LocalDate.parse(dataA, FORMATO_DATA);
                 if (dataProiezione.isAfter(dataFine)) continue;
             }
 
@@ -124,16 +109,12 @@ public class GestioneProiezioni {
      * @param proiezione la proiezione di cui calcolare i posti
      * @return il numero di posti liberi
      */
+    
     public int calcolaPostiLiberi(Proiezione proiezione) {
         int postiOccupati = 0;
 
         for (Prenotazione pr : prenotazioni) {
-            if (pr.getProiezione().getData()
-                  .equals(proiezione.getData()) &&
-                pr.getProiezione().getOra()
-                  .equals(proiezione.getOra()) &&
-                pr.getProiezione().getFilm().getTitolo()
-                  .equals(proiezione.getFilm().getTitolo())) {
+            if (pr.getProiezione().getData().equals(proiezione.getData()) && pr.getProiezione().getOra().equals(proiezione.getOra()) && pr.getProiezione().getFilm().getTitolo().equals(proiezione.getFilm().getTitolo())) {
                 postiOccupati += pr.getNumeroBiglietti();
             }
         }
@@ -157,8 +138,7 @@ public class GestioneProiezioni {
         // Controlla sovrapposizioni
         for (Proiezione p : proiezioni) {
             if (p.siSovrappone(proiezione)) {
-                System.out.println("Esiste già una proiezione " +
-                                   "in questa data e ora.");
+                System.out.println("Esiste già una proiezione in questa data e ora.");
                 return false;
             }
         }
@@ -180,24 +160,18 @@ public class GestioneProiezioni {
      * @return true se modificata con successo,
      *         false se ci sono prenotazioni o sovrapposizioni
      */
-    public boolean modificaProiezione(Proiezione proiezione,
-                                       String nuovaData,
-                                       String nuovaOra) {
+    public boolean modificaProiezione(Proiezione proiezione, String nuovaData, String nuovaOra) {
 
         // Controlla che non ci siano prenotazioni
         if (haPrenotazioni(proiezione)) {
-            System.out.println("Impossibile modificare: ci sono " +
-                               "prenotazioni per questa proiezione.");
+            System.out.println("Impossibile modificare: ci sono prenotazioni per questa proiezione.");
             return false;
         }
 
         // Controlla sovrapposizioni con la nuova data/ora
         for (Proiezione p : proiezioni) {
-            if (p != proiezione &&
-                p.getData().equals(nuovaData) &&
-                p.getOra().equals(nuovaOra)) {
-                System.out.println("Esiste già una proiezione " +
-                                   "in questa data e ora.");
+            if (p != proiezione && p.getData().equals(nuovaData) && p.getOra().equals(nuovaOra)) {
+                System.out.println("Esiste già una proiezione in questa data e ora.");
                 return false;
             }
         }
@@ -222,8 +196,7 @@ public class GestioneProiezioni {
 
         // Controlla che non ci siano prenotazioni
         if (haPrenotazioni(proiezione)) {
-            System.out.println("Impossibile eliminare: ci sono " +
-                               "prenotazioni per questa proiezione.");
+            System.out.println("Impossibile eliminare: ci sono prenotazioni per questa proiezione.");
             return false;
         }
 
@@ -240,12 +213,7 @@ public class GestioneProiezioni {
      */
     private boolean haPrenotazioni(Proiezione proiezione) {
         for (Prenotazione pr : prenotazioni) {
-            if (pr.getProiezione().getData()
-                  .equals(proiezione.getData()) &&
-                pr.getProiezione().getOra()
-                  .equals(proiezione.getOra()) &&
-                pr.getProiezione().getFilm().getTitolo()
-                  .equals(proiezione.getFilm().getTitolo())) {
+            if (pr.getProiezione().getData().equals(proiezione.getData()) && pr.getProiezione().getOra().equals(proiezione.getOra()) && pr.getProiezione().getFilm().getTitolo().equals(proiezione.getFilm().getTitolo())) {
                 return true;
             }
         }

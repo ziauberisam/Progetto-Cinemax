@@ -58,8 +58,7 @@ public class Cifratura {
      * @return true se le password corrispondono, false altrimenti
      */
 	
-    public static boolean verifica(String passwordInChiaro,
-                                   String passwordCifrata) {
+    public static boolean verifica(String passwordInChiaro,String passwordCifrata) {
         String cifrata = cifra(passwordInChiaro);
         if (cifrata == null) return false;
         return cifrata.equals(passwordCifrata);

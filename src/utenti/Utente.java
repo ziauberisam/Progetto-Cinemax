@@ -15,6 +15,7 @@ public abstract class Utente {
 	private String passwordCifrata;
 	private String domicilio;
 	private Ruolo ruolo;
+	
 	// COSTRUTTORE 
     /**
      * Crea un nuovo utente con i dati anagrafici indicati.
