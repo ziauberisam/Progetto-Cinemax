@@ -159,15 +159,15 @@ public class FileProiezioni {
                 return null;
             }
 
-            String data   = campi[0];
-            String ora    = campi[1];
+            String data = campi[0];
+            String ora = campi[1];
             String titolo = campi[2];
             String genere = campi[3];
             String regista = campi[4];
-            int anno      = Integer.parseInt(campi[5]);
-            int durata    = Integer.parseInt(campi[6]);
+            int anno = Integer.parseInt(campi[5]);
+            int durata = Integer.parseInt(campi[6]);
             int etaMinima = Integer.parseInt(campi[7]);
-            double costo  = Double.parseDouble(campi[8]);
+            double costo = Double.parseDouble(campi[8]);
 
             Film film = new Film(titolo, genere, regista,
                                  anno, durata, etaMinima);

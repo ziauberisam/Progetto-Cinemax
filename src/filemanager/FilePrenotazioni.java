@@ -68,7 +68,8 @@ public class FilePrenotazioni {
                 }
 
                 // Salta righe vuote
-                if (riga.trim().isEmpty()) continue;
+                if (riga.trim().isEmpty()) 
+                	continue;
 
                 Prenotazione p = leggiRiga(riga, proiezioni);
                 if (p != null) {
@@ -186,14 +187,14 @@ public class FilePrenotazioni {
                 return null;
             }
 
-            String codice          = campi[0];
-            String username        = campi[1];
-            String nome            = campi[2];
-            String cognome         = campi[3];
-            String dataProiezione  = campi[4];
-            String oraProiezione   = campi[5];
-            String titoloFilm      = campi[6];
-            int numeroBiglietti    = Integer.parseInt(campi[7]);
+            String codice = campi[0];
+            String username = campi[1];
+            String nome = campi[2];
+            String cognome = campi[3];
+            String dataProiezione = campi[4];
+            String oraProiezione = campi[5];
+            String titoloFilm = campi[6];
+            int numeroBiglietti = Integer.parseInt(campi[7]);
 
             // Cerca la proiezione corrispondente
             Proiezione proiezione = trovaProiezione(
@@ -207,8 +208,7 @@ public class FilePrenotazioni {
             }
 
             // Usa il costruttore con codice già esistente
-            return new Prenotazione(codice, username, nome, cognome,
-                                    proiezione, numeroBiglietti);
+            return new Prenotazione(codice, username, nome, cognome, proiezione, numeroBiglietti);
 
         } catch (NumberFormatException e) {
             System.out.println("Errore nel formato numerico: "
@@ -232,9 +232,7 @@ public class FilePrenotazioni {
      * @return la Proiezione trovata, oppure null se
      *         non esiste nessuna proiezione corrispondente
      */
-    private static Proiezione trovaProiezione(List<Proiezione> proiezioni,
-                                               String data, String ora,
-                                               String titolo) {
+    private static Proiezione trovaProiezione(List<Proiezione> proiezioni, String data, String ora, String titolo) {
         for (Proiezione p : proiezioni) {
             if (p.getData().equals(data) &&
                 p.getOra().equals(ora) &&

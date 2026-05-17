@@ -160,12 +160,12 @@ public class FileUtenti {
                 return null;
             }
 
-            String nome            = campi[0];
-            String cognome         = campi[1];
-            String username        = campi[2];
+            String nome = campi[0];
+            String cognome = campi[1];
+            String username = campi[2];
             String passwordCifrata = campi[3];
-            String domicilio       = campi[4];
-            String ruolo           = campi[5];
+            String domicilio = campi[4];
+            String ruolo = campi[5];
 
             // Crea l'oggetto corretto in base al ruolo
             switch (ruolo) {

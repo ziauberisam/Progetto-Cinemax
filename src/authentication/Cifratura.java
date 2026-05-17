@@ -5,7 +5,7 @@
  * 	Samuele Caputo, matricola 765173, VA
  */
 
-package auth;
+package authentication;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
