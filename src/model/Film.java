@@ -1,5 +1,6 @@
 /**
  * Rappresenta un film nel sistema CineMax
+ * Viene utilizzato all'interno di una {@link Proiezione}
  * 
  * Autori:
  * Samuele Caputo, matricola 765173, VA
@@ -20,6 +21,7 @@ public class Film {
 	
 	/**Costruisce un film con tutti i suoi dati:
 	 * 
+	 * 
 	 * @param titolo
 	 * @param genere
 	 * @param regista
@@ -39,7 +41,9 @@ public class Film {
 	
 	}
 	
-	//METODI
+	//METODI:
+	
+	//GETTERS
 
 	public String getTitolo() {
 		return titolo;
@@ -60,17 +64,43 @@ public class Film {
 	public int getDurata() {
 		return durata;
 	}
+	
+	//SETTERS
+	
+	public void setTitolo(String titolo) {
+		this.titolo = titolo;
+	}
+
+	public void setGenere(String genere) {
+		this.genere = genere;
+	}
+
+	public void setRegista(String regista) {
+		this.regista = regista;
+	}
+
+	public void setAnno(int anno) {
+		this.anno = anno;
+	}
 
 	public void setDurata(int durata) {
 		this.durata = durata;
+	}
+
+	public void setEtaMinima(int etaMinima) {
+		this.etaMinima = etaMinima;
 	}
 
 	public int getEtaMinima() {
 		return etaMinima;
 	}
 
-	public void setEtaMinima(int etaMinima) {
-		this.etaMinima = etaMinima;
+	@Override
+	public String toString() {
+		return "Film [titolo=" + titolo + ", genere=" + genere + ", regista=" + regista + ", anno=" + anno + ", durata="
+				+ durata + ", etaMinima=" + etaMinima + "]";
 	}
+	
+	
 	
 }

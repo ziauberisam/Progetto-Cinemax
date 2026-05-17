@@ -4,7 +4,7 @@
  * 	Samuele Caputo, matricola 765173, VA
  */
 
-package model;
+package utenti;
 
 public enum Ruolo {
 	CLIENTE, PROIEZIONISTA, BIGLIETTAIO	

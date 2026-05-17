@@ -5,7 +5,7 @@
  * 	Autori:
  * 	Samuele Caputo, matricola 765173, VA
  */
-package model;
+package utenti;
 
 public abstract class Utente {
 	
@@ -14,7 +14,7 @@ public abstract class Utente {
 	private String username;
 	private String passwordCifrata;
 	private String domicilio;
-   
+	private Ruolo ruolo;
 	// COSTRUTTORE 
     /**
      * Crea un nuovo utente con i dati anagrafici indicati.
@@ -23,14 +23,16 @@ public abstract class Utente {
      * @param username         username scelto per il login
      * @param passwordCifrata  password già cifrata 
      * @param domicilio        luogo di domicilio
+     * @param ruolo				il ruolo nel sistema
      */
     public Utente(String nome, String cognome, String username,
-                  String passwordCifrata, String domicilio) {
+                  String passwordCifrata, String domicilio, Ruolo ruolo) {
         this.nome = nome;
         this.cognome = cognome;
         this.username = username;
         this.passwordCifrata = passwordCifrata;
         this.domicilio = domicilio;
+        this.ruolo = ruolo;
     }
     
     public abstract Ruolo getRuolo();
@@ -61,6 +63,21 @@ public abstract class Utente {
     }
     public void setDomicilio(String domicilio) {
         this.domicilio = domicilio;
+    }
+    
+    /**
+     * Restituisce la persona in formato CSV,
+     * pronta per essere salvata su file.
+     *
+     * @return stringa in formato CSV
+     */
+    public String toCSV() {
+        return nome + ";" +
+               cognome + ";" +
+               username + ";" +
+               passwordCifrata + ";" +
+               domicilio + ";" +
+               ruolo;
     }
     
     @Override

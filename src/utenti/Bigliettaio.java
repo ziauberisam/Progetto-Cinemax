@@ -6,7 +6,7 @@
  * Samuele Caputo, matricola 765173, VA
  */
 
-package model;
+package utenti;
 
 public class Bigliettaio extends Utente{
 	
@@ -14,7 +14,7 @@ public class Bigliettaio extends Utente{
      * Crea un nuovo bigliettaio.
      */
 	public Bigliettaio(String nome, String cognome, String username, String passwordCifrata, String domicilio) {
-		super(nome, cognome, username, passwordCifrata, domicilio);
+		super(nome, cognome, username, passwordCifrata, domicilio, Ruolo.BIGLIETTAIO);
 		
 	}
 
