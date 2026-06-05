@@ -52,6 +52,6 @@ public class Sessione {
    
     public static void logout() {
         utenteLoggato = null;
-        System.out.println("Logout effettuato con successo.");
+        System.out.println("Logout effettuato con successo.\n");
     }
 }

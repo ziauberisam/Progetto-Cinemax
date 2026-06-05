@@ -1,0 +1,11 @@
+data;ora;titolo;genere;regista;anno;durata;etaMinima;costoBiglietto
+2027-06-01;20:30;Inception;Fantascienza;Nolan;2010;148;12;9.5
+2027-06-01;18:00;Il Padrino;Drammatico;Coppola;1972;175;14;8.0
+2026-06-19;20:55;Interstellar;Fantascienza;Nolan;2014;169;12;10.0
+2027-06-03;20:00;Forrest Gump;Drammatico;Zemeckis;1994;142;0;7.5
+2027-06-03;18:00;Il Re Leone;Animazione;Allers;1994;88;0;6.5
+2027-06-04;21:00;The Dark Knight;Azione;Nolan;2008;152;14;9.5
+2027-06-04;18:30;Pulp Fiction;Drammatico;Tarantino;1994;154;18;8.5
+2027-06-05;20:00;Schindler's List;Drammatico;Spielberg;1993;195;14;8.0
+2027-06-05;17:00;Avatar;Fantascienza;Cameron;2009;162;12;11.0
+2026-06-05;19;Titanic;Drammatico;James Cameron;1997;194;12;7.5

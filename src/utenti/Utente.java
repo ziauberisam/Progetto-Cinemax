@@ -78,7 +78,7 @@ public abstract class Utente {
                username + ";" +
                passwordCifrata + ";" +
                domicilio + ";" +
-               ruolo;
+               ruolo.name();
     }
     
     @Override

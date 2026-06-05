@@ -14,6 +14,7 @@ import utenti.Utente;
 import utenti.Cliente;
 import utenti.Bigliettaio;
 import utenti.Proiezionista;
+import utenti.Ruolo;
 
 public class FileUtenti {
 	
@@ -22,7 +23,7 @@ public class FileUtenti {
 
     /** Intestazione del file CSV. */
     private static final String INTESTAZIONE =
-        "nome;cognome;username;password;dataNascita;domicilio;ruolo";
+        "nome;cognome;username;password;domicilio;ruolo";
 
     /**
      * Costruttore privato — questa classe non va istanziata.
@@ -152,40 +153,40 @@ public class FileUtenti {
      */
     private static Utente leggiRiga(String riga) {
         try {
+            // Usa il punto e virgola come separatore
             String[] campi = riga.split(";", -1);
 
             // Controlla che ci siano tutti i campi
-            if (campi.length < 7) {
+            if (campi.length < 6) {
                 System.out.println("Riga CSV non valida: " + riga);
                 return null;
             }
 
-            String nome = campi[0];
-            String cognome = campi[1];
-            String username = campi[2];
-            String passwordCifrata = campi[3];
-            String domicilio = campi[4];
-            String ruolo = campi[5];
+            String nome            = campi[0].trim();
+            String cognome         = campi[1].trim();
+            String username        = campi[2].trim();
+            String passwordCifrata = campi[3].trim();
+            String domicilio       = campi[4].trim();
+            String ruolo           = campi[5].trim();
 
-            // Crea l'oggetto corretto in base al ruolo
-            switch (ruolo) {
-                case "CLIENTE":
+            switch (Ruolo.valueOf(ruolo.toUpperCase())) {
+                case CLIENTE:
                     return new Cliente(nome, cognome, username,
-                                       passwordCifrata,
-                                       domicilio);
-                case "BIGLIETTAIO":
+                                       passwordCifrata, domicilio);
+                case BIGLIETTAIO:
                     return new Bigliettaio(nome, cognome, username,
-                                           passwordCifrata,
-                                           domicilio);
-                case "PROIEZIONISTA":
+                                           passwordCifrata, domicilio);
+                case PROIEZIONISTA:
                     return new Proiezionista(nome, cognome, username,
-                                             passwordCifrata,
-                                             domicilio);
+                                             passwordCifrata, domicilio);
                 default:
                     System.out.println("Ruolo non riconosciuto: " + ruolo);
                     return null;
             }
 
+        } catch (IllegalArgumentException e) {
+            System.out.println("Ruolo non valido nella riga: " + riga);
+            return null;
         } catch (Exception e) {
             System.out.println("Errore nella lettura della riga: "
                                + e.getMessage());

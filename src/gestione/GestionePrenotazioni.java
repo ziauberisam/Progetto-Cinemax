@@ -62,11 +62,15 @@ public class GestionePrenotazioni {
 		
     	Prenotazione prenotazione = new Prenotazione(cliente.getUsername(), cliente.getNome(), cliente.getCognome(), proiezione, numeroBiglietti);
 		
-		proiezioni.add(proiezione);
+		prenotazioni.add(prenotazione);
 		return FilePrenotazioni.aggiungi(prenotazione);
     }
     
-    //Metodo utilizzato anche per la creazione di una prenotazione, che calcola i posti liberi di una proiezione. 
+    /**Metodo utilizzato anche per la creazione di una prenotazione, che calcola i posti liberi di una proiezione. 
+     * 
+     * @param proiezione la proiezione di cui si vogliono sapere i posti liberi
+     * @return
+     */
     private int calcolaPostiLiberi(Proiezione proiezione) {
     	int postiOccupati = 0;
     	for(Prenotazione p: prenotazioni) {
@@ -91,12 +95,12 @@ public class GestionePrenotazioni {
     			risultati.add(p);
     	return risultati;
     }
+    
     /**	Metodo che restituisce tutte le prenotazioni effettuate da un cliente nella data odierna.
      * 
-     * @param username
      * @return	la lista delle prenotazioni effettuate dal cliente nel giorno odierno.
      */
-    public LinkedList<Prenotazione> visualizzaPrenotazioneOdierna(String username){
+    public LinkedList<Prenotazione> getPrenotazioneOdierna(){
     	LinkedList<Prenotazione> risultati = new LinkedList<Prenotazione>();
     	String oggi = LocalDate.now().format(FORMATO_DATA);
     	for(Prenotazione p : prenotazioni)
@@ -167,24 +171,43 @@ public class GestionePrenotazioni {
     	LocalDate oggi = LocalDate.now();
     	LocalDate dataVecchia = LocalDate.parse(prenotazione.getProiezione().getData(), FORMATO_DATA);
     	if(!dataVecchia.isAfter(oggi)) {
-    		System.out.print("Impossibile modificare la prenotazione: la proiezione è già avvenuta");
+    		System.out.println("Impossibile modificare la prenotazione: la proiezione è già avvenuta");
     		return false;
     	}
     		
     	LocalDate dataNuova = LocalDate.parse(nuovaProiezione.getData(), FORMATO_DATA);
     	if(!dataNuova.isAfter(oggi)) {
-    		System.out.print("Impossibile modificare la prenotazione: la nuova data è gia passata");
+    		System.out.println("Impossibile modificare la prenotazione: la nuova data è gia passata");
     		return false;
     	}
     	
     	int postiLiberi = calcolaPostiLiberi(nuovaProiezione);
     	if(prenotazione.getNumeroBiglietti()> postiLiberi) {
-    		System.out.print("Impossibile modificare la prenotazione: non ci sono posti liberi");
+    		System.out.println("Impossibile modificare la prenotazione: non ci sono posti liberi");
     		return false;
     	}	
     	
     	prenotazione.setProiezione(nuovaProiezione);
     	return FilePrenotazioni.salvaTutte(prenotazioni);
+    }
+    
+    /**
+     * Restituisce tutte le prenotazioni di un cliente.
+     *
+     * @param username lo username del cliente
+     * @return lista delle prenotazioni del cliente,
+     *         lista vuota se non ha prenotazioni
+     */
+    public LinkedList<Prenotazione> getPrenotazioniCliente(String username) {
+        LinkedList<Prenotazione> risultati = new LinkedList<>();
+
+        for (Prenotazione p : prenotazioni) {
+            if (p.getUsernameCliente().equals(username)) {
+                risultati.add(p);
+            }
+        }
+
+        return risultati;
     }
     
     /** Metodo che elimina le prenotazioni avvenute nel passato.

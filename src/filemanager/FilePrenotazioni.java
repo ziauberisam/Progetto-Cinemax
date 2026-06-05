@@ -76,7 +76,7 @@ public class FilePrenotazioni {
                     prenotazioni.add(p);
 
                     // Aggiorna il contatore per evitare codici duplicati
-                    // es. PRE-003 → estrae il numero 3
+                    // es. PRE-003 estrae il numero 3
                     try {
                         String numeroCodice = p.getCodice().replace("PRE-", "");
                         int numero = Integer.parseInt(numeroCodice);
