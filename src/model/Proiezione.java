@@ -1,8 +1,9 @@
 /**
- * Rappresenta una proiezione cinematografica all'interno di Cinemax.
+ * Rappresenta una proiezione cinematografica all'interno del sistema Cinemax.
  * 
  * Autori: 
  * Samuele Caputo, matricola 765173, VA
+ * Alessandra Larghi, matricola 765304, VA
  */
 
 package model;

@@ -1,9 +1,10 @@
 /**
  * Rappresenta un film nel sistema CineMax
- * Viene utilizzato all'interno di una {@link Proiezione}
+ * Viene utilizzato all'interno di una Proiezione
  * 
  * Autori:
  * Samuele Caputo, matricola 765173, VA
+ * Alessandra Larghi, matricola 765304, VA
  */
 package model;
 

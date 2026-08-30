@@ -3,7 +3,8 @@
  * Può cercare proiezioni, inserire/modificare/eliminare proprie prenotazioni.
  * 
  * Autori:
- * Samuele Caputo, matricola 765173, VA
+ * Samuele Caputo, matricola 765173, VAù
+ * Alessandra Larghi, matricola 765304, VA
  */
 
 package utenti;

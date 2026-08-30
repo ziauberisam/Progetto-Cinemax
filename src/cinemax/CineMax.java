@@ -4,7 +4,7 @@
  * 
  * Autori:
  * Samuele Caputo, matricola 765173, VA
- * 
+ * Alessandra Larghi, matricola 765304, VA
  */
 package cinemax;
 
